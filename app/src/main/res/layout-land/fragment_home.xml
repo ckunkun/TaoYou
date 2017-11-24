@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/bg"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingTop="32dp"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/rl_balance"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginLeft="12dp">
+
+        <ImageView
+            android:id="@+id/img1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:src="@mipmap/ic_recharge"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/img1"
+            android:textSize="14sp"
+            android:text="@string/recharge"/>
+
+        <TextView
+            android:id="@+id/tv_balance"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@+id/right_go"
+            android:textSize="12sp"
+            android:layout_marginRight="4dp"
+            android:textColor="@color/TranslucentWhite"
+            android:text="余额：28000淘币"/>
+
+        <ImageView
+            android:id="@+id/right_go"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="16dp"
+            android:layout_centerVertical="true"
+            android:src="@mipmap/ic_right_go"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="32dp"
+            android:background="@color/divisionline"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_billing_record"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginLeft="12dp">
+
+        <ImageView
+            android:id="@+id/img2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:src="@mipmap/ic_billing_record"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/img2"
+            android:textSize="14sp"
+            android:text="@string/billing_record"/>
+
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="16dp"
+            android:layout_centerVertical="true"
+            android:src="@mipmap/ic_right_go"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="32dp"
+            android:background="@color/divisionline"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_vouches"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginLeft="12dp">
+
+        <ImageView
+            android:id="@+id/img3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:src="@mipmap/ic_vouchers"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/img3"
+            android:textSize="14sp"
+            android:text="@string/my_vouchers"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="16dp"
+            android:layout_centerVertical="true"
+            android:src="@mipmap/ic_right_go"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="32dp"
+            android:background="@color/divisionline"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_safe_center"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginLeft="12dp">
+
+        <ImageView
+            android:id="@+id/img4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:src="@mipmap/ic_safe_center"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/img4"
+            android:textSize="14sp"
+            android:text="@string/safe_center"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="16dp"
+            android:layout_centerVertical="true"
+            android:src="@mipmap/ic_right_go"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="32dp"
+            android:background="@color/divisionline"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_help"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginLeft="12dp">
+
+        <ImageView
+            android:id="@+id/img5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:src="@mipmap/ic_helpe"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/img5"
+            android:textSize="14sp"
+            android:text="@string/help"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="16dp"
+            android:layout_centerVertical="true"
+            android:src="@mipmap/ic_right_go"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="32dp"
+            android:background="@color/divisionline"/>
+    </RelativeLayout>
+</LinearLayout>

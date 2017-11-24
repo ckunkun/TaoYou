@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    
+    <dimen name="space">4dp</dimen>
+    <dimen name="title">36px</dimen>
+    <dimen name="important">32px</dimen>
+    <dimen name="routine">30px</dimen>
+    <dimen name="popTitle">28px</dimen>
+    <dimen name="prompt">14sp</dimen>
+    <dimen name="id">12sp</dimen>
+    <dimen name="numpop">20px</dimen>
+</resources>

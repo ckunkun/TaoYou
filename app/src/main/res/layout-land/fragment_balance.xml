@@ -1,0 +1,508 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/view_top_back" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="40dp"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <RelativeLayout
+                android:id="@+id/rl_balance"
+                android:layout_width="match_parent"
+                android:layout_height="48dp">
+
+                <ImageView
+                    android:id="@+id/img1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="16dp"
+                    android:src="@mipmap/ic_in_balance" />
+
+                <TextView
+                    android:id="@+id/tv_balance"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="4dp"
+                    android:layout_toRightOf="@+id/img1"
+                    android:text="余额：28000淘币"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/tv_amoy_bean"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="12dp"
+                    android:layout_toRightOf="@+id/tv_balance"
+                    android:text="216000淘豆"
+                    android:textSize="16sp" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginLeft="12dp"
+                    android:background="@color/divisionline" />
+            </RelativeLayout>
+
+            <LinearLayout
+                android:id="@+id/t_ll"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="12dp"
+                        android:text="订单金额"/>
+
+                    <TextView
+                        android:id="@+id/tv_tmoney"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="12dp"
+                        android:text="100元宝"/>
+
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1px"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginLeft="12dp"
+                        android:background="@color/divisionline" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="12dp"
+                        android:text="代金券"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="22dp"
+                        android:text="暂无代金券"/>
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@mipmap/ic_right_go"
+                        android:layout_marginRight="12dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"/>
+
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1px"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginLeft="12dp"
+                        android:background="@color/divisionline" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="12dp"
+                        android:text="余额"/>
+
+                    <TextView
+                        android:id="@+id/tv_ttotle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toLeftOf="@+id/tv_plan"
+                        android:layout_centerVertical="true"
+                        android:text="500淘币"/>
+
+                    <TextView
+                        android:id="@+id/tv_plan"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="12dp"
+                        android:textSize="12sp"
+                        android:textColor="@color/TranslucentWhite"
+                        android:text="(1淘币=1人民币)"/>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1px"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginLeft="12dp"
+                        android:background="@color/divisionline" />
+                </RelativeLayout>
+
+            </LinearLayout>
+
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="12dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/recharge_type"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/tv_pay_type"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginLeft="12dp"
+                android:layout_marginRight="12dp">
+
+                <ImageView
+                    android:id="@+id/left"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:src="@mipmap/ic_pay_left" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_toLeftOf="@+id/right"
+                    android:layout_toRightOf="@+id/left">
+
+                    <RelativeLayout
+                        android:id="@+id/rl_alipay"
+                        android:layout_width="42dp"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:src="@mipmap/ic_pay_alipay" />
+
+                        <ImageView
+                            android:id="@+id/img_alipay_check"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:src="@mipmap/ic_pay_checked" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/rl_wx"
+                        android:layout_width="42dp"
+                        android:layout_height="match_parent"
+                        android:visibility="gone"
+                        android:layout_marginLeft="4dp">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:src="@mipmap/ic_pay_wx" />
+
+                        <ImageView
+                            android:id="@+id/img_wx_check"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:src="@mipmap/ic_pay_checked"
+                            android:visibility="gone" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/rl_card"
+                        android:layout_width="42dp"
+                        android:layout_height="match_parent"
+                        android:visibility="gone"
+                        android:layout_marginLeft="4dp">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:src="@mipmap/ic_credit_card" />
+
+                        <ImageView
+                            android:id="@+id/img_card_check"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:src="@mipmap/ic_pay_checked"
+                            android:visibility="gone" />
+                    </RelativeLayout>
+                </LinearLayout>
+
+                <ImageView
+                    android:id="@+id/right"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:src="@mipmap/ic_pay_right" />
+
+
+            </RelativeLayout>
+
+
+            <LinearLayout
+                android:id="@+id/money1"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_marginTop="12dp"
+                android:weightSum="4">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center">
+
+                    <TextView
+                        android:id="@+id/btn_ten"
+                        android:layout_width="70dp"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/dra_pay_balance_check_bg"
+                        android:gravity="center"
+                        android:text="@string/ten_rmb"
+                        android:textColor="@color/white" />
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center">
+
+                    <TextView
+                        android:id="@+id/btn_twenty"
+                        android:layout_width="70dp"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/dra_pay_balance_bg"
+                        android:gravity="center"
+                        android:text="@string/twenty_rmb"
+                        android:textColor="@color/TranslucentWhite" />
+
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center">
+
+                    <TextView
+                        android:id="@+id/btn_fifty"
+                        android:layout_width="70dp"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/dra_pay_balance_bg"
+                        android:gravity="center"
+                        android:text="@string/fifty_rmb"
+                        android:textColor="@color/TranslucentWhite" />
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center">
+
+                    <TextView
+                        android:id="@+id/btn_one_hundred"
+                        android:layout_width="70dp"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/dra_pay_balance_bg"
+                        android:gravity="center"
+                        android:text="@string/one_hundred_rmb"
+                        android:textColor="@color/TranslucentWhite" />
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/money2"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_marginTop="12dp"
+                android:weightSum="4">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center">
+
+                    <TextView
+                        android:id="@+id/btn_two_hundred"
+                        android:layout_width="70dp"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/dra_pay_balance_bg"
+                        android:gravity="center"
+                        android:text="@string/two_hundred_rmb"
+                        android:textColor="@color/TranslucentWhite" />
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center">
+
+                    <TextView
+                        android:id="@+id/btn_three_hundred"
+                        android:layout_width="70dp"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/dra_pay_balance_bg"
+                        android:gravity="center"
+                        android:text="@string/three_hundred_rmb"
+                        android:textColor="@color/TranslucentWhite" />
+
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center">
+
+                    <EditText
+                        android:id="@+id/btn_other"
+                        android:layout_width="70dp"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/dra_pay_balance_bg"
+                        android:gravity="center"
+                        android:maxLines="1"
+                        android:inputType="number"
+                        android:hint="@string/other_balance"
+                        android:maxLength="5"
+                        android:textColor="@color/TranslucentWhite" />
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:text="@string/pay_rule"
+                        android:textSize="12sp"
+                        android:inputType="number"
+                        android:textColor="@color/TranslucentWhite" />
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_marginLeft="12dp"
+                android:layout_marginTop="12dp"
+                android:background="@color/divisionline" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="12dp"
+                android:layout_marginRight="12dp">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:text="@string/need_pay"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/tv_pay_money"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="12dp"
+                    android:textColor="@color/yellow"
+                    android:textSize="14sp" />
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="@color/divisionline" />
+
+            <TextView
+                android:id="@+id/btn_instant_echarge"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_margin="12dp"
+                android:background="@drawable/dra_pay_balance_check_bg"
+                android:gravity="center"
+                android:text="@string/instant_echarge"
+                android:textColor="@color/white"
+                android:textSize="18sp" />
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>
+
+
+
+

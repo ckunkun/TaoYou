@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/view_top_back" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/hos_recyclerview"
+        android:layout_width="match_parent"
+        android:layout_height="64dp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/divisionline" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/help_recyclerview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+
+</LinearLayout>

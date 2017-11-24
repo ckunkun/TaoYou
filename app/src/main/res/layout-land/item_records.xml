@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/rl"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+
+        <TextView
+            android:id="@+id/tv_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="12dp"
+            android:textColor="@color/TranslucentWhite"
+            android:textSize="14sp"
+            android:text="2017年 10:08"/>
+
+        <TextView
+            android:id="@+id/tv_money"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="12dp"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            android:text="+100淘币"/>
+    </RelativeLayout>
+
+
+
+    <TextView
+        android:id="@+id/tv_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="充值热血校园战记100钻石"
+        android:textColor="@color/TranslucentWhite"
+        android:layout_marginTop="36dp"
+        android:layout_marginLeft="12dp"/>
+
+
+    <TextView
+        android:id="@+id/tv_msg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="赠送100000淘豆"
+        android:layout_marginRight="12dp"
+        android:layout_alignParentRight="true"
+        android:textColor="@color/TranslucentWhite"
+        android:layout_marginTop="36dp"
+        android:layout_marginLeft="12dp"/>
+
+    <View
+        android:id="@+id/recharge_view"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_below="@+id/rl"
+        android:background="@color/TranslucentWhite"
+        android:layout_marginLeft="12dp"/>
+
+    <View
+        android:id="@+id/consumption_view"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_marginTop="16dp"
+        android:layout_below="@+id/rl"
+        android:background="@color/TranslucentWhite"
+        android:visibility="gone"
+        android:layout_marginLeft="12dp"/>
+</RelativeLayout>

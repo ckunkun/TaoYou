@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/ic_v_brackground"
+    android:orientation="horizontal"
+    android:focusableInTouchMode="true"
+    android:focusable="true"
+    tools:context="com.ad.taoyou.HomeActivity">
+
+
+    <LinearLayout
+        android:id="@+id/top_ll"
+        android:layout_width="160dp"
+        android:layout_height="match_parent"
+        android:background="@color/LightTranslucentBlac"
+        android:orientation="vertical">
+
+
+        <LinearLayout
+            android:id="@+id/btn_back_game"
+            android:layout_width="wrap_content"
+            android:layout_height="32dp"
+            android:layout_marginLeft="16dp"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/ic_back_to_game" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="4dp"
+                android:text="@string/back_game"
+                android:textColor="@color/TranslucentWhite" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/tv_ava"
+                android:layout_width="50dp"
+                android:layout_height="50dp"/>
+
+            <TextView
+                android:id="@+id/tv_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="淘游"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/tv_id"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="ID:123456"
+                android:textColor="@color/TranslucentWhite"
+                android:textSize="14sp" />
+
+            <RelativeLayout
+                android:id="@+id/btn_message"
+                android:layout_width="wrap_content"
+                android:layout_height="32dp"
+                android:layout_marginTop="8dp">
+
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:src="@mipmap/ic_message" />
+
+                <TextView
+                    android:id="@+id/tv_num_message"
+                    android:layout_width="wrap_content"
+                    android:layout_height="15dp"
+                    android:layout_marginLeft="12dp"
+                    android:background="@drawable/dra_num_message_bg"
+                    android:gravity="center"
+                    android:minWidth="15dp"
+                    android:text="9"
+                    android:textColor="@color/red" />
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:weightSum="2">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:weightSum="2">
+
+                <LinearLayout
+                    android:id="@+id/ll_menu1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="right|bottom"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:layout_marginRight="12dp"
+                        android:layout_marginBottom="12dp"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/img_menu1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@mipmap/ic_home" />
+
+                        <TextView
+                            android:id="@+id/menu1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/space"
+                            android:text="@string/home"
+                            android:textColor="@color/white"
+                            android:textSize="14sp" />
+
+                    </LinearLayout>
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:id="@+id/ll_menu2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="left|bottom"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:layout_marginBottom="12dp"
+                        android:layout_marginLeft="12dp">
+
+                        <ImageView
+                            android:id="@+id/img_menu2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@mipmap/ic_circle" />
+
+                        <TextView
+                            android:id="@+id/menu2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/space"
+                            android:text="@string/circle"
+                            android:textColor="@color/TranslucentWhite"
+                            android:textSize="14sp" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:weightSum="2">
+
+
+                <LinearLayout
+                    android:id="@+id/ll_menu3"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="right"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:layout_marginTop="12dp"
+                        android:layout_marginRight="12dp">
+                        <ImageView
+                            android:id="@+id/img_menu3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@mipmap/ic_gift" />
+
+                        <TextView
+                            android:id="@+id/menu3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/space"
+                            android:text="@string/gift"
+                            android:textColor="@color/TranslucentWhite"
+                            android:textSize="14sp" />
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:id="@+id/ll_menu4"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:layout_marginTop="12dp"
+                        android:layout_marginLeft="12dp">
+
+
+                        <ImageView
+                            android:id="@+id/img_menu4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@mipmap/ic_activity" />
+
+                        <TextView
+                            android:id="@+id/menu4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/space"
+                            android:text="@string/activity"
+                            android:textColor="@color/TranslucentWhite"
+                            android:textSize="14sp" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+    </LinearLayout>
+
+
+    <com.ad.taoyou.common.view.CustomViewPager
+        android:id="@+id/viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_toRightOf="@+id/top_ll"/>
+
+    <FrameLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_toRightOf="@+id/top_ll"/>
+
+    <FrameLayout
+        android:id="@+id/container2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_toRightOf="@+id/top_ll"/>
+
+    <FrameLayout
+        android:id="@+id/container3"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_toRightOf="@+id/top_ll"/>
+
+    <FrameLayout
+        android:id="@+id/container4"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_toRightOf="@+id/top_ll"/>
+
+
+</RelativeLayout>

@@ -184,8 +184,8 @@ public class FragmentRecharge extends BaseFragment {
         params.addFormDataPart("gopenid", UserInfo.getInstance().getGopenid());
         params.addFormDataPart("p", rechargePage);
         params.addFormDataPart("s", 10);
-//        params.addFormDataPart("beginDate", beginTime);
-//        params.addFormDataPart("endDate", endTime);
+        params.addFormDataPart("beginDate", beginTime);
+        params.addFormDataPart("endDate", endTime);
         Log.i(TAG, "测试 充值记录列表" + params);
         HttpRequest.post(url, params, new HttpRequestCallBack(mContext) {
             @Override

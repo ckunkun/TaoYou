@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/bg"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:id="@+id/rl_recommend"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="24dp"
+            android:layout_toLeftOf="@+id/rl_all">
+
+            <TextView
+                android:id="@+id/tv_recommend"
+                android:layout_width="65dp"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                android:gravity="center"
+                android:text="@string/Recommend_gift"
+                android:textColor="@color/white"
+                android:textSize="16sp" />
+
+            <View
+                android:id="@+id/view_recommend"
+                android:layout_width="65dp"
+                android:layout_height="2dp"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:background="@color/white" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_all"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true">
+
+            <TextView
+                android:id="@+id/tv_all"
+                android:layout_width="65dp"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                android:gravity="center"
+                android:text="@string/all_gift"
+                android:textColor="@color/TranslucentWhite"
+                android:textSize="16sp" />
+
+            <View
+                android:id="@+id/view_all"
+                android:layout_width="65dp"
+                android:layout_height="2dp"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:background="@color/white"
+                android:visibility="gone" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_my"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="24dp"
+            android:layout_toRightOf="@+id/rl_all">
+
+            <TextView
+                android:id="@+id/tv_my"
+                android:layout_width="65dp"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                android:gravity="center"
+                android:text="@string/my_gift"
+                android:textColor="@color/TranslucentWhite"
+                android:textSize="16sp" />
+
+            <View
+                android:id="@+id/view_my"
+                android:layout_width="65dp"
+                android:layout_height="2dp"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:background="@color/white"
+                android:visibility="gone" />
+
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <View style="@style/HorizontalLine" />
+
+    <com.handmark.pulltorefresh.library.PullToRefreshRecyclerView
+        android:id="@+id/recommend_recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <com.handmark.pulltorefresh.library.PullToRefreshRecyclerView
+        android:id="@+id/all_recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <com.handmark.pulltorefresh.library.PullToRefreshRecyclerView
+        android:id="@+id/my_recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <LinearLayout
+        android:id="@+id/my_empty"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/ic_empty_mygift" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/empty_my_gift" />
+
+        <TextView
+            android:id="@+id/btn_go_receive"
+            android:layout_width="100dp"
+            android:layout_height="35dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/dra_pay_balance_check_bg"
+            android:gravity="center"
+            android:text="@string/go_receive_gift"
+            android:textColor="@color/white" />
+
+
+    </LinearLayout>
+
+
+    <View style="@style/HorizontalLine" />
+
+</LinearLayout>

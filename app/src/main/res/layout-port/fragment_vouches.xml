@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp"
+        android:layout_above="@+id/btn_back"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp">
+
+            <RelativeLayout
+                android:id="@+id/voucher_rl"
+                android:layout_width="80dp"
+                android:layout_height="match_parent"
+                android:layout_centerVertical="true">
+
+                <TextView
+                    android:id="@+id/tv_my_voucher"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_centerVertical="true"
+                    android:gravity="center"
+                    android:text="@string/My_voucher"
+                    android:textColor="@color/white"
+                    android:textSize="16sp" />
+
+                <View
+                    android:id="@+id/view_my_voucher"
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:layout_alignParentBottom="true"
+                    android:background="@color/white" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="80dp"
+                android:layout_height="match_parent"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="24dp"
+                android:layout_toRightOf="@+id/voucher_rl">
+
+                <TextView
+                    android:id="@+id/tv_exchange_voucher"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_centerVertical="true"
+                    android:gravity="center"
+                    android:text="@string/Exchange_voucher"
+                    android:textColor="@color/TranslucentWhite"
+                    android:textSize="16sp" />
+
+                <View
+                    android:id="@+id/view_exchange_voucher"
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:layout_alignParentBottom="true"
+                    android:background="@color/white"
+                    android:visibility="gone" />
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recyclerview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/exchange_recyclerview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"/>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/empty"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:visibility="gone"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="18dp"
+            android:src="@mipmap/ic_no_voucher" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/no_voucher" />
+
+        <TextView
+            android:id="@+id/btn_go_exchange"
+            android:layout_width="60dp"
+            android:layout_height="30dp"
+            android:background="@drawable/dra_pay_balance_check_bg"
+            android:gravity="center"
+            android:layout_marginTop="8dp"
+            android:text="@string/exchange_voucher"
+            android:textColor="@color/white" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/btn_back"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="4dp"
+        android:gravity="center">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/ic_pay_left" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/LightTranslucentBlac" />
+
+
+</RelativeLayout>

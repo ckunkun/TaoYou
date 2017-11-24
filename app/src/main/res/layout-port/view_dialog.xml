@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#00000000"
+    android:orientation="vertical"
+    android:padding="32dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:background="@drawable/dra_all_white_bg"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_title"
+            style="@style/DialogText.Title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:background="@android:color/white"
+            android:gravity="center"
+            android:paddingBottom="8dp"
+            android:text="温馨提示"
+            android:paddingTop="16dp"
+            android:textColor="@color/lightblack" />
+
+        <LinearLayout
+            android:id="@+id/ly_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:background="@android:color/white"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_message"
+                style="@style/DialogText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:paddingBottom="16dp"
+                android:paddingTop="8dp" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/lightdivisionline" />
+
+
+        <Button
+            android:id="@+id/btn_2"
+            style="@style/ButtonDefaultDialogHorizontalStyle"
+            android:background="@drawable/selector_button_transparent"
+            android:text="@string/trues"
+            android:textColor="@color/blue" />
+    </LinearLayout>
+</RelativeLayout>

@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/view_top_back" />
+
+
+    <TextView
+        android:id="@+id/tv_bind_phone"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginLeft="12dp"
+        android:gravity="center_vertical"
+        android:text="当前绑定手机号 15013123123"
+        android:visibility="gone"
+        android:textColor="@color/white" />
+
+    <View
+        style="@style/HorizontalLine"
+        android:layout_below="@+id/tv_bind_phone"
+        android:layout_marginLeft="38dp"
+        android:visibility="gone" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:layout_below="@+id/tv_bind_phone"
+        android:orientation="vertical">
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginLeft="12dp"
+
+            >
+
+            <ImageView
+                android:id="@+id/img1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:src="@mipmap/ic_phone" />
+
+            <EditText
+                android:id="@+id/et_phone"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@+id/img1"
+                android:background="#00000000"
+                android:gravity="center_vertical"
+                android:hint="@string/input_phone"
+                android:inputType="number"
+                android:maxLength="11"
+                android:maxLines="1"
+                android:textSize="14sp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="26dp"
+                android:background="@color/divisionline" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginLeft="12dp">
+
+            <ImageView
+                android:id="@+id/img2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:src="@mipmap/ic_code" />
+
+            <EditText
+                android:id="@+id/et_code"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="12dp"
+                android:layout_toLeftOf="@+id/btn_send"
+                android:layout_toRightOf="@+id/img2"
+                android:background="#00000000"
+                android:gravity="center_vertical"
+                android:hint="@string/input_code"
+                android:inputType="number"
+                android:maxLines="1"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/btn_send"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="12dp"
+                android:gravity="center_vertical"
+                android:text="@string/get_code" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="26dp"
+                android:background="@color/divisionline" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/btn_true"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_margin="12dp"
+            android:background="@drawable/dra_pay_balance_bg"
+            android:gravity="center"
+            android:text="@string/trues"
+            android:textSize="18sp" />
+    </LinearLayout>
+
+
+
+
+</RelativeLayout>

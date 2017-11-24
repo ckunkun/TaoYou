@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:android_custom="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="90dp"
+    android:orientation="vertical"
+    android:paddingLeft="12dp">
+
+
+    <ImageView
+        android:id="@+id/img_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:src="@mipmap/ic_gift_img" />
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="12dp"
+        android:layout_toRightOf="@+id/img_icon"
+        android:text="全民斗大战神"
+        android:textColor="@color/white"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/tv_subtitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_title"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="6dp"
+        android:layout_toRightOf="@+id/img_icon"
+        android:text="独家新版创世感恩礼包" />
+
+    <TextView
+        android:id="@+id/tv_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_subtitle"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="2dp"
+        android:layout_toLeftOf="@+id/btn_receive"
+        android:layout_toRightOf="@+id/img_icon"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:text="铜币*30000；通用灵气袋*5；角色..." />
+
+
+    <RelativeLayout
+        android:id="@+id/btn_receive"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="12dp"
+        android:layout_marginTop="24dp">
+
+        <com.ad.taoyou.common.view.RoundProgressBar
+            android:id="@+id/img_receive"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android_custom:roundColor="#7b7ccfff"
+            android_custom:roundProgressColor="#7ccfff"
+            android_custom:roundWidth="3dip"
+            android_custom:textColor="#00000000"
+            android_custom:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/tv_receive"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="领"
+            android:textColor="@color/white"
+            android:textSize="12sp" />
+
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/btn_copy"
+        android:layout_width="60dp"
+        android:layout_height="30dp"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="12dp"
+        android:background="@drawable/dra_pay_balance_check_bg"
+        android:gravity="center"
+        android:text="复制"
+        android:visibility="gone" />
+
+    <View
+        android:id="@+id/view"
+        style="@style/HorizontalLine"
+        android:layout_alignParentBottom="true" />
+</RelativeLayout>

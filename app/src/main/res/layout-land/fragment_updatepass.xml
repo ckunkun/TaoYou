@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <include layout="@layout/view_top_back" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginLeft="12dp">
+
+        <ImageView
+            android:id="@+id/img3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:src="@mipmap/ic_password" />
+
+        <EditText
+            android:id="@+id/et_password"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="12dp"
+            android:layout_toRightOf="@+id/img3"
+            android:background="#00000000"
+            android:gravity="center_vertical"
+            android:hint="@string/input_password3"
+            android:inputType="textPassword"
+            android:maxLines="1"
+            android:textSize="14sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="26dp"
+            android:background="@color/divisionline" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginLeft="12dp">
+
+        <ImageView
+            android:id="@+id/img4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:src="@mipmap/ic_password" />
+
+        <EditText
+            android:id="@+id/et_password2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="12dp"
+            android:layout_toRightOf="@+id/img4"
+            android:background="#00000000"
+            android:gravity="center_vertical"
+            android:hint="@string/input_new_pass"
+            android:inputType="textPassword"
+            android:maxLines="1"
+            android:textSize="14sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="26dp"
+            android:background="@color/divisionline" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginLeft="12dp">
+
+        <ImageView
+            android:id="@+id/img5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:src="@mipmap/ic_password" />
+
+        <EditText
+            android:id="@+id/et_password3"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="12dp"
+            android:layout_toRightOf="@+id/img5"
+            android:background="#00000000"
+            android:gravity="center_vertical"
+            android:hint="@string/input_password2"
+            android:inputType="textPassword"
+            android:maxLines="1"
+            android:textSize="14sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="26dp"
+            android:background="@color/divisionline" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/btn_true"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_margin="12dp"
+        android:background="@drawable/dra_pay_balance_bg"
+        android:gravity="center"
+        android:text="@string/trues"
+        android:textSize="18sp" />
+</LinearLayout>

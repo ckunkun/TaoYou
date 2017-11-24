@@ -1,0 +1,45 @@
+//apply plugin: 'com.android.application'
+apply plugin: 'com.android.library'
+
+android {
+    useLibrary 'org.apache.http.legacy'
+    compileSdkVersion 26
+    buildToolsVersion "26.0.1"
+    defaultConfig {
+//        applicationId "com.ad.taoyou"
+        minSdkVersion 15
+        targetSdkVersion 26
+        versionCode 2
+        versionName "2.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    lintOptions {
+        checkReleaseBuilds false
+    }
+}
+
+
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+//    compile 'com.android.support:appcompat-v7:26.+'
+//    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    testCompile 'junit:junit:4.12'
+    compile 'com.android.support:recyclerview-v7:23.3.0'
+    compile 'com.google.code.gson:gson:2.8.0'
+    compile 'com.squareup.okhttp3:okhttp:3.6.0'
+    compile 'com.nostra13.universalimageloader:universal-image-loader:1.9.3'
+    compile 'com.github.castorflex.smoothprogressbar:library-circular:1.2.0'
+    compile 'com.tencent.mm.opensdk:wechat-sdk-android-without-mta:+'
+    compile project(':pulltorefresh')
+
+}

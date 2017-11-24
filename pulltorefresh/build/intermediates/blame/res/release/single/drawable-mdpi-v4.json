@@ -1,0 +1,14 @@
+[
+    {
+        "merged": "D:\\TYSDK\\ty\\TaoYou\\pulltorefresh\\build\\intermediates\\res\\merged\\release\\drawable-mdpi-v4\\default_ptr_flip.png",
+        "source": "D:\\TYSDK\\ty\\TaoYou\\pulltorefresh\\src\\main\\res\\drawable-mdpi\\default_ptr_flip.png"
+    },
+    {
+        "merged": "D:\\TYSDK\\ty\\TaoYou\\pulltorefresh\\build\\intermediates\\res\\merged\\release\\drawable-mdpi-v4\\default_ptr_rotate.png",
+        "source": "D:\\TYSDK\\ty\\TaoYou\\pulltorefresh\\src\\main\\res\\drawable-mdpi\\default_ptr_rotate.png"
+    },
+    {
+        "merged": "D:\\TYSDK\\ty\\TaoYou\\pulltorefresh\\build\\intermediates\\res\\merged\\release\\drawable-mdpi-v4\\indicator_arrow.png",
+        "source": "D:\\TYSDK\\ty\\TaoYou\\pulltorefresh\\src\\main\\res\\drawable-mdpi\\indicator_arrow.png"
+    }
+]

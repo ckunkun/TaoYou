@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+    //用于深色背景
+    <color name="blue">#52cdff</color>//用于特别需要强调和突出的文字和icon，登陆成功，领取礼包成功，选中支付方式等
+    <color name="white">#ffffff</color>//白色，用于重要文字信息，内容标题信息等
+    <color name="TranslucentWhite">#7fffffff</color>//半透明，用于辅助、次要的信息
+    <color name="yellow">#ffee2d</color>//小面积使用，用于重要文字颜色
+    <color name="red">#ff4a5f</color>//小面积使用，用于警戒提示颜色
+    <color name="green">#18bd55</color>／／用于账号安全图标
+    <color name="background">#33ffffff</color>／／20%透明。用于内容模块底色
+    <color name="divisionline">#26ffffff</color>／／用15%透明。用于分割线
+
+    //用于浅色背景
+    <color name="lightblue">#34bdf5</color>／／用于特别需要强调和突出的文字和
+    <color name="lightblack">#333333</color>／／用于特别需要强调和突出的文字和
+    <color name="LightTranslucentBlac">#7f333333</color>／／用于特别需要强调和突出的文字和
+    <color name="lightdivisionline">#26333333</color>／／用于特别需要强调和突出的文字和
+
+</resources>
