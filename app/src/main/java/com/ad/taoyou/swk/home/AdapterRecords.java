@@ -9,6 +9,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.ad.taoyou.R;
+import com.ad.taoyou.common.utils.DateUtil;
 import com.ad.taoyou.common.view.SecClickListener;
 
 import java.util.List;
@@ -43,7 +44,9 @@ public class AdapterRecords extends RecyclerView.Adapter {
         ViewHolder viewHolder = (ViewHolder) holder;
         Recordsinfo data = mList.get(position);
 
-        viewHolder.mTvTime.setText(data.getCreateTime());
+
+        String createTime = DateUtil.longToDate(Long.parseLong(data.getCreateTime()), "yyyy/MM/dd/HH:mm");
+        viewHolder.mTvTime.setText(createTime);
         viewHolder.mTvMoney.setText(data.getTitle());
 
         if (state == RECHAERGE) {

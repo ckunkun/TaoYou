@@ -6,7 +6,9 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-
+import cn.finalteam.okhttpfinal.HttpRequest;
+import cn.finalteam.okhttpfinal.RequestParams;
+import cn.finalteam.toolsfinal.JsonFormatUtils;
 import com.ad.taoyou.R;
 import com.ad.taoyou.common.base.BaseFragment;
 import com.ad.taoyou.common.utils.HttpRequestCallBack;
@@ -14,10 +16,6 @@ import com.ad.taoyou.common.values.HttpTaskValues;
 import com.ad.taoyou.swk.login.UserInfo;
 import com.alibaba.fastjson.JSONObject;
 import com.google.gson.Gson;
-
-import cn.finalteam.okhttpfinal.HttpRequest;
-import cn.finalteam.okhttpfinal.RequestParams;
-import cn.finalteam.toolsfinal.JsonFormatUtils;
 
 /**
  * Created by sunweike on 2017/8/28.
@@ -58,6 +56,7 @@ public class FragmentSafe extends BaseFragment {
         } else if (i == R.id.btn_bindphone) {//绑定手机号
             Bundle bundle = new Bundle();
             bundle.putString("tel", safeInfo.getTel());
+            Log.i(TAG, safeInfo.getTel());
             skipFragment(FragmentBindPhone.TAG, new FragmentBindPhone(), this, bundle);
 
         } else if (i == R.id.btn_setPass) {//修改密码

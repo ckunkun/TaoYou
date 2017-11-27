@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -52,6 +53,7 @@ public class FragmentBindPhone extends BaseFragment {
     @Override
     protected void initAllMembersView(Bundle savedInstanceState) {
         mBtnSend = (TextView) mRootView.findViewById(R.id.btn_send);
+        // 当前绑定的手机号
         mTvBindTel = (TextView) mRootView.findViewById(R.id.tv_bind_phone);
         mEtCode = (EditText) mRootView.findViewById(R.id.et_code);
         mEtPhone = (EditText) mRootView.findViewById(R.id.et_phone);
@@ -70,17 +72,23 @@ public class FragmentBindPhone extends BaseFragment {
 
         } else if (i == R.id.btn_send) {//发送验证码
 
-            if (state == NEW_PHONE) {
-                if (TextUtils.isEmpty(newPhone) || newPhone.length() < 11) {
-                    //手机号判空和位数判断
-                    MyApplication.showToast(getResources().getString(R.string.judge_phone), true);
-                    return;
-                }
-            } else {
-                if (newPhone.equals(tel)) {
-                    MyApplication.showToast(getResources().getString(R.string.judge_phone), true);
-                    return;
-                }
+            //if (state == NEW_PHONE) {
+            //    if (TextUtils.isEmpty(newPhone) || newPhone.length() < 11) {
+            //        //手机号判空和位数判断
+            //        MyApplication.showToast(getResources().getString(R.string.judge_phone), true);
+            //        return;
+            //    }
+            //} else {
+            //
+            //    //if (newPhone.equals(tel)) {
+            //    //    MyApplication.showToast(getResources().getString(R.string.judge_phone), true);
+            //    //    return;
+            //    //}
+            //}
+            if (TextUtils.isEmpty(newPhone) || newPhone.length() < 11) {
+                //手机号判空和位数判断
+                MyApplication.showToast(getResources().getString(R.string.judge_phone), true);
+                return;
             }
             getCode();
             changeSendSMSButtonState();
@@ -128,11 +136,16 @@ public class FragmentBindPhone extends BaseFragment {
 
     @Override
     public void initData() {
+        if (getArguments() != null) {
+            tel = getArguments().getString("tel");
+            Log.i(TAG,tel);
+        }
+
         if (TextUtils.isEmpty(tel)) {
             mTvBindTel.setVisibility(View.GONE);
             state = NEW_PHONE;
         } else {
-            tel = getArguments().getString("tel");
+            //tel = getArguments().getString("tel");
             tel1 = tel.substring(0, 3) + "****" + tel.substring(7, tel.length());
             mTvBindTel.setVisibility(View.VISIBLE);
             mTvBindTel.setText("当前绑定手机号 " + tel1 + "请先解除绑定");
