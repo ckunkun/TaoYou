@@ -1,5 +1,7 @@
 package com.ad.taoyou.swk.home;
 
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -12,12 +14,13 @@ import android.widget.TextView;
 import com.ad.taoyou.MyApplication;
 import com.ad.taoyou.R;
 import com.ad.taoyou.common.base.BaseFragment;
+import com.ad.taoyou.common.utils.AppManager;
 import com.ad.taoyou.common.utils.HttpRequestCallBack;
+import com.ad.taoyou.common.utils.SharedPreferencesUtil;
 import com.ad.taoyou.common.values.HttpTaskValues;
+import com.ad.taoyou.swk.login.ActivityLogin;
 import com.ad.taoyou.swk.login.UserInfo;
 import com.alibaba.fastjson.JSONObject;
-
-import org.json.JSONException;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -166,7 +169,12 @@ public class FragmentBindPhone extends BaseFragment {
                         mIdentityCodeTime--;
                     } else {
                         mBtnSend.setClickable(true);
-                        mBtnSend.setText("重新获取");
+                        if (state == NEW_PHONE) {
+                            mBtnSend.setText(mContext.getResources().getString(R.string.get_code));
+                        } else {
+                            mBtnSend.setText("重新获取");
+                        }
+
                         mBtnSend.setAlpha(1f);
                     }
                     break;
@@ -206,15 +214,22 @@ public class FragmentBindPhone extends BaseFragment {
         params.addFormDataPart("ty_ctoken", UserInfo.getInstance().getToken());
         params.addFormDataPart("ty_cid", UserInfo.getInstance().getCid());
         params.addFormDataPart("gopenid", UserInfo.getInstance().getGopenid());
-        params.addFormDataPart("tel", tel);
-        if (!TextUtils.isEmpty(resetTicket))
-            params.addFormDataPart("resetTicket", resetTicket);
+        //params.addFormDPart("tel", tel);
+
+        if (state == NEW_PHONE){
+            params.addFormDataPart("tel", newPhone);
+        }
+        Log.i(TAG, params + ""+state);
         HttpRequest.post(url, params, new HttpRequestCallBack(mContext) {
             @Override
             protected boolean onSuccess(JSONObject jsonObject, String msg) {
                 if (super.onSuccess(jsonObject, msg)) {
                     String rawJsonData = JsonFormatUtils.formatJson(jsonObject.toJSONString());
-//                    Log.i(TAG, rawJsonData);
+                    Log.i(TAG, rawJsonData);
+                    if (jsonObject.getInteger("ret").intValue() == 0) {
+                        mDilogTvMessage.setText("验证码已发送");
+                        myUniversalDialog.show();
+                    }
                 }
                 return super.onSuccess(jsonObject, msg);
             }
@@ -224,33 +239,53 @@ public class FragmentBindPhone extends BaseFragment {
     private void update() {
         String url = state == OLD_PHONE ? HttpTaskValues.API_POST_SAFE_VERIFYCODE : HttpTaskValues.API_POST_SAFE_SETTEL;
         RequestParams params = new RequestParams();
-        params.addFormDataPart("tel", newPhone);
+        //params.addFormDataPart("tel", newPhone);
         params.addFormDataPart("code", code);
         params.addFormDataPart("ty_ctoken", UserInfo.getInstance().getToken());
         params.addFormDataPart("ty_cid", UserInfo.getInstance().getCid());
         params.addFormDataPart("gopenid", UserInfo.getInstance().getGopenid());
-        if (!TextUtils.isEmpty(resetTicket))
-            params.addFormDataPart("resetTicket", resetTicket);
+        if (state == NEW_PHONE){
+            params.addFormDataPart("tel", newPhone);
+        }
+        Log.i(TAG, params + ""+state);
         HttpRequest.post(url, params, new HttpRequestCallBack(mContext) {
             @Override
             protected boolean onSuccess(JSONObject jsonObject, String msg) {
                 if (super.onSuccess(jsonObject, msg)) {
                     String rawJsonData = JsonFormatUtils.formatJson(jsonObject.toJSONString());
-//                    Log.i(TAG, rawJsonData);
+                    Log.i(TAG, rawJsonData);
 
                     if (state == OLD_PHONE) {
-                        try {
-                            resetTicket = new org.json.JSONObject(jsonObject.get("data").toString()).getString("resetTicket");
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-                        mDilogTvMessage.setText("手机号码解绑成功");
+                        if (jsonObject.getInteger("ret")==0) {
+                         mDilogTvMessage.setText("手机号码解绑成功");
                         myUniversalDialog.show();
+                            state = NEW_PHONE;
+                            mTvBindTel.setVisibility(View.VISIBLE);
+                            mTvBindTel.setText("当前绑定手机号 " + tel1 + "解除绑定成功");
+                            mEtPhone.setText("");
+                            mEtPhone.setHint("请输入新手机号");
+                            mEtPhone.requestFocus();
+                            mEtCode.setText("");
+                            mIdentityCodeTime = 0;
+                            mBtnSend.setClickable(true);
+                            //mBtnSend.setText(mContext.getResources().getString(R.string.get_code));
+                            //mBtnSend.setAlpha(1f);
+                        }
                     } else {
                         //保存新绑定手机号码
                         UserInfo.instance.setPhone(newPhone);
                         mDilogTvMessage.setText("手机号码绑定成功");
                         myUniversalDialog.show();
+                        myUniversalDialog.setOnCancelListener(new DialogInterface.OnCancelListener() {
+                            @Override public void onCancel(DialogInterface dialogInterface) {
+                                mContext.startActivity(new Intent(mContext, ActivityLogin.class));
+
+                                AppManager.getAppManager().finishAllActivity();
+
+                                SharedPreferencesUtil.remove(MyApplication.USER_INFO);
+                            }
+                        });
+
                     }
 
                 }

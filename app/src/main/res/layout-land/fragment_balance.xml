@@ -38,7 +38,7 @@
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="4dp"
                     android:layout_toRightOf="@+id/img1"
-                    android:text="余额：28000淘币"
+                    android:text="余额：0淘币"
                     android:textSize="16sp" />
 
                 <TextView
@@ -48,7 +48,7 @@
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="12dp"
                     android:layout_toRightOf="@+id/tv_balance"
-                    android:text="216000淘豆"
+                    android:text="0淘豆"
                     android:textSize="16sp" />
 
                 <View
@@ -236,7 +236,7 @@
                         android:id="@+id/rl_wx"
                         android:layout_width="42dp"
                         android:layout_height="match_parent"
-                        android:visibility="gone"
+                        android:visibility="visible"
                         android:layout_marginLeft="4dp">
 
                         <ImageView

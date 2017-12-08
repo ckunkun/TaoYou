@@ -56,6 +56,7 @@ public class FragmentGift extends BaseFragment implements SecClickListener {
     private List<GiftInfo> allList = new ArrayList<>();
     private List<GiftInfo> myList = new ArrayList<>();
     private AdapterGift recommendAdapter, allAdapter, myAdapter;
+    private TextView mGiftToast;
 
     public static FragmentGift newInstance(String param) {
         FragmentGift fragment = new FragmentGift();
@@ -79,6 +80,8 @@ public class FragmentGift extends BaseFragment implements SecClickListener {
         recommendRecyclerView = (PullToRefreshRecyclerView) mRootView.findViewById(R.id.recommend_recyclerView);
         allRecyclerView = (PullToRefreshRecyclerView) mRootView.findViewById(R.id.all_recyclerView);
         myRecyclerView = (PullToRefreshRecyclerView) mRootView.findViewById(R.id.my_recyclerView);
+
+        mGiftToast = (TextView) mRootView.findViewById(R.id.gift_toast);
         initView();
         initData();
         registerBoradcastReceiver();
@@ -117,15 +120,32 @@ public class FragmentGift extends BaseFragment implements SecClickListener {
         if (i == R.id.btn_go_receive || i == R.id.tv_recommend) {//推荐礼包
             clear();
             mTvRecommend.setTextColor(getActivity().getResources().getColor(R.color.white));
-            mRootView.findViewById(R.id.view_recommend).setVisibility(View.VISIBLE);
-            recommendRecyclerView.setVisibility(View.VISIBLE);
+            if (recommendList.size() != 0) {
+                recommendRecyclerView.setVisibility(View.VISIBLE);
+            } else {
+                mGiftToast.setText("暂时还没有礼包哦~!");
+                mRootView.findViewById(R.id.btn_go_receive).setVisibility(View.INVISIBLE);
+                mRootView.findViewById(R.id.view_recommend).setVisibility(View.VISIBLE);
+                mRootView.findViewById(R.id.my_empty).setVisibility(View.VISIBLE);
+            }
+
         } else if (i == R.id.tv_all) {//全部礼包
             clear();
             mTvAll.setTextColor(getActivity().getResources().getColor(R.color.white));
-            mRootView.findViewById(R.id.view_all).setVisibility(View.VISIBLE);
-            allRecyclerView.setVisibility(View.VISIBLE);
+            if (allList.size() != 0) {
+                allRecyclerView.setVisibility(View.VISIBLE);
+            } else {
+
+                mGiftToast.setText("暂时还没有礼包哦~!");
+                mRootView.findViewById(R.id.btn_go_receive).setVisibility(View.INVISIBLE);
+
+                mRootView.findViewById(R.id.view_all).setVisibility(View.VISIBLE);
+                mRootView.findViewById(R.id.my_empty).setVisibility(View.VISIBLE);
+            }
+
         } else if (i == R.id.tv_my) {//我的礼包
             toMyGift();
+
         }
     }
 
@@ -145,6 +165,9 @@ public class FragmentGift extends BaseFragment implements SecClickListener {
         if (myList.size() != 0)
             myRecyclerView.setVisibility(View.VISIBLE);
         else
+
+            mGiftToast.setText("你还没有领取礼包哦~!");
+        mRootView.findViewById(R.id.btn_go_receive).setVisibility(View.VISIBLE);
             mRootView.findViewById(R.id.my_empty).setVisibility(View.VISIBLE);
     }
 
@@ -288,7 +311,7 @@ public class FragmentGift extends BaseFragment implements SecClickListener {
             protected boolean onSuccess(JSONObject jsonObject, String msg) {
                 if (super.onSuccess(jsonObject, msg)) {
                     String rawJsonData = JsonFormatUtils.formatJson(jsonObject.toJSONString());
-//                    Log.i(TAG, "1.7.1 推荐礼包接口" + rawJsonData);
+                    Log.i(TAG, "1.7.1 推荐礼包接口" + rawJsonData);
                     try {
                         List<GiftInfo> list = new Gson().fromJson(
                                 new org.json.JSONObject(jsonObject.get("data").toString()).getString("list"),
@@ -308,6 +331,11 @@ public class FragmentGift extends BaseFragment implements SecClickListener {
                                 MyApplication.showToast("暂无更多礼包");
                                 recommendRecyclerView.setMode(PullToRefreshBase.Mode.PULL_FROM_START);
                             }
+                            recommendRecyclerView.setVisibility(View.GONE);
+                            mGiftToast.setText("暂时还没有礼包哦~!");
+                            mRootView.findViewById(R.id.btn_go_receive).setVisibility(View.INVISIBLE);
+
+                            mRootView.findViewById(R.id.my_empty).setVisibility(View.VISIBLE);
                         }
 
                     } catch (JSONException e) {
@@ -336,7 +364,7 @@ public class FragmentGift extends BaseFragment implements SecClickListener {
             protected boolean onSuccess(JSONObject jsonObject, String msg) {
                 if (super.onSuccess(jsonObject, msg)) {
                     String rawJsonData = JsonFormatUtils.formatJson(jsonObject.toJSONString());
-//                    Log.i(TAG, "1.7.2 所有礼包接口" + rawJsonData);
+                    Log.i(TAG, "1.7.2 所有礼包接口" + rawJsonData);
                     try {
                         List<GiftInfo> list = new Gson().fromJson(
                                 new org.json.JSONObject(jsonObject.get("data").toString()).getString("list"),
@@ -356,6 +384,7 @@ public class FragmentGift extends BaseFragment implements SecClickListener {
                                 MyApplication.showToast("暂无更多礼包");
                                 allRecyclerView.setMode(PullToRefreshBase.Mode.PULL_FROM_START);
                             }
+
                         }
 
                     } catch (JSONException e) {
@@ -385,7 +414,7 @@ public class FragmentGift extends BaseFragment implements SecClickListener {
             protected boolean onSuccess(JSONObject jsonObject, String msg) {
                 if (super.onSuccess(jsonObject, msg)) {
                     String rawJsonData = JsonFormatUtils.formatJson(jsonObject.toJSONString());
-//                    Log.i(TAG, "1.7.3 我的礼包接口" + rawJsonData);
+                    Log.i(TAG, "1.7.3 我的礼包接口" + rawJsonData);
                     try {
                         List<GiftInfo> list = new Gson().fromJson(
                                 new org.json.JSONObject(jsonObject.get("data").toString()).getString("list"),
@@ -432,7 +461,7 @@ public class FragmentGift extends BaseFragment implements SecClickListener {
             protected boolean onSuccess(JSONObject jsonObject, String msg) {
                 if (super.onSuccess(jsonObject, msg)) {
                     String rawJsonData = JsonFormatUtils.formatJson(jsonObject.toJSONString());
-//                    Log.i(TAG, "1.7.6 获取礼包码接口" + rawJsonData);
+                    Log.i(TAG, "1.7.6 获取礼包码接口" + rawJsonData);
                     try {
                         //复制兑换码
                         // 得到剪贴板管理器

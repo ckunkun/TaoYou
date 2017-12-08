@@ -6,7 +6,6 @@ import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.graphics.Point;
-import android.util.Log;
 import android.view.Display;
 import android.view.Gravity;
 import android.view.WindowManager;
@@ -49,9 +48,9 @@ public class MyApplication extends SFOnlineApplication {
     public static HashMap<HttpUrl, List<Cookie>> cookieStore = new HashMap<>();
 
     public static Application getInstance() {
-        if (sApplication == null) {
-            sApplication = new MyApplication();
-        }
+//        if (sApplication == null) {
+//            sApplication = new MyApplication();
+//        }
         return sApplication;
     }
 

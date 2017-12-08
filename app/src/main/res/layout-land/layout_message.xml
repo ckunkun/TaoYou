@@ -2,41 +2,49 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:background="@mipmap/ic_v_brackground"
+    android:orientation="vertical"
+    >
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="32dp"
-        android:background="@color/LightTranslucentBlac">
+  <RelativeLayout
+      android:layout_width="match_parent"
+      android:layout_height="32dp"
+      android:background="@color/LightTranslucentBlac"
+      >
 
-        <LinearLayout
-            android:id="@+id/btn_back_game"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="16dp"
-            android:gravity="center_vertical">
+    <LinearLayout
+        android:id="@+id/btn_back_game"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="16dp"
+        android:gravity="center_vertical"
+        >
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@mipmap/ic_back_to_game" />
+      <ImageView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:src="@mipmap/ic_back_to_game"
+          />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="4dp"
-                android:text="@string/back_game"
-                android:textColor="@color/TranslucentWhite" />
-        </LinearLayout>
+      <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginLeft="4dp"
+          android:text="@string/back_game"
+          android:textColor="@color/TranslucentWhite"
+          />
+    </LinearLayout>
 
-    </RelativeLayout>
+  </RelativeLayout>
 
-    <com.handmark.pulltorefresh.library.PullToRefreshRecyclerView
-        android:id="@+id/recyclerview"
-        android:layout_width="match_parent"
-        android:layout_marginTop="32dp"
-        android:layout_marginBottom="40dp"
-        android:layout_height="match_parent"/>
+  <com.handmark.pulltorefresh.library.PullToRefreshRecyclerView
+      android:id="@+id/recyclerview"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:layout_marginBottom="40dp"
+      android:layout_marginTop="32dp"
 
-    <include layout="@layout/view_fragment_back"/>
+      />
+
+  <include layout="@layout/view_fragment_back" />
 </RelativeLayout>

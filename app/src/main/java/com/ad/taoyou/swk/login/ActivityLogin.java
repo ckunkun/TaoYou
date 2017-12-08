@@ -14,7 +14,6 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.EditText;
 
-import com.ad.taoyou.HomeActivity;
 import com.ad.taoyou.MyApplication;
 import com.ad.taoyou.R;
 import com.ad.taoyou.common.alipay.AlipayUtils;
@@ -59,8 +58,8 @@ public class ActivityLogin extends BaseActivity implements View.OnClickListener 
 
     @Override
     protected void initAllMembersView(Bundle savedInstanceState) {
-        String appid = Utils.getChannel(mContext, "APP_ID");
-//        String appid="wx09030271900f6745";
+//        String appid = Utils.getChannel(mContext, "APP_ID");
+        String appid="wx09030271900f6745";
         api = WXAPIFactory.createWXAPI(mContext, appid);
         api.registerApp(appid);
         initView();
@@ -167,8 +166,9 @@ public class ActivityLogin extends BaseActivity implements View.OnClickListener 
         public void onReceive(Context context, Intent intent) {
             String action = intent.getAction();
             if (action.equals(TAG)) {
+                tyListener.onSuccess(UserInfo.getInstance());
                 AppManager.getAppManager().finishActivity();
-                startActivity(new Intent(mContext, HomeActivity.class));
+//                startActivity(new Intent(mContext, HomeActivity.class));
             }
         }
 
@@ -287,6 +287,7 @@ public class ActivityLogin extends BaseActivity implements View.OnClickListener 
                     UserInfo.getInstance().setCid(ty_cid);
                     UserInfo.getInstance().setGopenid(gopenid);
                     UserInfo.getInstance().setHeartbeatInterval(heart);
+                    UserInfo.getInstance().setGameCode(MyApplication.gc);
                     SharedPreferencesUtil.saveObj(mContext, MyApplication.USER_INFO, UserInfo.getInstance());
                     LoadingDialogUtil.dismissLoadingDialog();
                     AppManager.getAppManager().finishActivity();

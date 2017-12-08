@@ -35,10 +35,10 @@
             android:name=".swk.login.ActivityLogin"
             android:launchMode="singleTask" />
 
-        <activity
-            android:name=".wxapi.WXEntryActivity"
-            android:exported="true"
-            android:launchMode="singleTop" />
+        <!--<activity-->
+            <!--android:name=".wxapi.WXEntryActivity"-->
+            <!--android:exported="true"-->
+            <!--android:launchMode="singleTop" />-->
 
         <service
             android:name=".swk.service.TYService"

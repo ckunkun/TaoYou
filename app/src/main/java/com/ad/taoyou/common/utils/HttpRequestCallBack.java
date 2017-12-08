@@ -90,7 +90,7 @@ public class HttpRequestCallBack extends JsonHttpRequestCallback {
         } else if (ErrorValues.CODE_YJUSER_LOGIN_ERROR.equals(errorCode + "")
                 || ErrorValues.CODE_LOGIN_ERROR.equals(errorCode + "")) {
             //第三方平台登录失败
-            mDilogTvMessage.setText("密码错误");
+            mDilogTvMessage.setText("登录失败");
             myUniversalDialog.show();
         } else if (ErrorValues.CODE_PASSWORD_ERROR.equals(errorCode + "")) {
             //密码验证失败

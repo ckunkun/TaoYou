@@ -140,14 +140,14 @@ public class FragmentHome extends BaseFragment {
             protected boolean onSuccess(JSONObject jsonObject, String msg) {
                 if (super.onSuccess(jsonObject, msg)) {
                     String rawJsonData = JsonFormatUtils.formatJson(jsonObject.toJSONString());
-//                    Log.i(TAG, "1.5.3 我的淘币余额接口" + rawJsonData);
+                    Log.i(TAG, "1.5.3 我的淘币余额接口" + rawJsonData);
                     try {
                         String balanceCoin = new org.json.JSONObject(jsonObject.get("data").toString()).getString("balanceCoin");
                         if (TextUtils.isEmpty(balanceCoin)) {
                             mTvBalance.setText("余额：0");
                             UserInfo.instance.setBalanceCoin("0");
                         } else {
-                            mTvBalance.setText("余额：" + balanceCoin);
+                            mTvBalance.setText("余额：" + Integer.parseInt(balanceCoin)/100);
                             UserInfo.instance.setBalanceCoin(balanceCoin);
                         }
 
@@ -168,12 +168,13 @@ public class FragmentHome extends BaseFragment {
         params.addFormDataPart("ty_ctoken", UserInfo.getInstance().getToken());
         params.addFormDataPart("ty_cid", UserInfo.getInstance().getCid());
         params.addFormDataPart("gopenid", UserInfo.getInstance().getGopenid());
+
         HttpRequest.post(url, params, new HttpRequestCallBack(mContext) {
             @Override
             protected boolean onSuccess(JSONObject jsonObject, String msg) {
                 if (super.onSuccess(jsonObject, msg)) {
                     String rawJsonData = JsonFormatUtils.formatJson(jsonObject.toJSONString());
-//                    Log.i(TAG, "1.5.3 我的淘币余额接口" + rawJsonData);
+                    Log.i(TAG, "1.5.3 我的淘币余额接口" + rawJsonData);
                     try {
                         String balanceScore = new org.json.JSONObject(jsonObject.get("data").toString()).getString("balanceScore");
                         UserInfo.instance.setBalanceScore(!TextUtils.isEmpty(balanceScore) ? balanceScore : "0");

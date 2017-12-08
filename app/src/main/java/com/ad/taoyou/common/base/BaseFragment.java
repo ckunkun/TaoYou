@@ -15,7 +15,6 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-
 import com.ad.taoyou.R;
 import com.ad.taoyou.common.utils.DisplayUtil;
 import com.ad.taoyou.common.utils.FragManager;
@@ -23,8 +22,6 @@ import com.ad.taoyou.common.view.MyCustomDialog;
 import com.ad.taoyou.swk.activity.FragmentActivity;
 import com.ad.taoyou.swk.gift.FragmentGift;
 import com.ad.taoyou.swk.home.FragmentHome;
-
-import java.util.List;
 
 public abstract class BaseFragment extends Fragment implements BaseFragmentInterface, View.OnClickListener {
     public abstract int getContentViewId();

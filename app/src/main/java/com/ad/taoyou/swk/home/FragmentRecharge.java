@@ -185,16 +185,16 @@ public class FragmentRecharge extends BaseFragment {
         params.addFormDataPart("p", rechargePage);
         params.addFormDataPart("s", 10);
 
-        Log.i(TAG, beginTime + "===" + endTime);
+//        Log.i(TAG, beginTime + "===" + endTime);
         params.addFormDataPart("beginDate", beginTime);
         params.addFormDataPart("endDate", endTime);
-        Log.i(TAG, "测试 充值记录列表" + params);
+//        Log.i(TAG, "测试 充值记录列表" + params);
         HttpRequest.post(url, params, new HttpRequestCallBack(mContext) {
             @Override
             protected boolean onSuccess(JSONObject jsonObject, String msg) {
                 if (super.onSuccess(jsonObject, msg)) {
                     String rawJsonData = JsonFormatUtils.formatJson(jsonObject.toJSONString());
-                    Log.i(TAG, "1.9.2 充值记录列表" + rawJsonData);
+//                    Log.i(TAG, "1.9.2 充值记录列表" + rawJsonData);
                     try {
                         List<Recordsinfo> list = new Gson().fromJson(
                                 new org.json.JSONObject(jsonObject.get("data").toString()).getString("list"),
@@ -253,7 +253,7 @@ public class FragmentRecharge extends BaseFragment {
             protected boolean onSuccess(JSONObject jsonObject, String msg) {
                 if (super.onSuccess(jsonObject, msg)) {
                     String rawJsonData = JsonFormatUtils.formatJson(jsonObject.toJSONString());
-//                    Log.i(TAG, "1.9.3 消费记录列表" + rawJsonData);
+                    Log.i(TAG, "1.9.3 消费记录列表" + rawJsonData);
                     try {
                         List<Recordsinfo> list = new Gson().fromJson(
                                 new org.json.JSONObject(jsonObject.get("data").toString()).getString("list"),
@@ -262,6 +262,7 @@ public class FragmentRecharge extends BaseFragment {
 
                         if (list.size() > 0) {
                             consumptionList.addAll(list);
+
                             if (consumptionList.size() == list.size())
                                 adapterConsumption.notifyDataSetChanged();
                             else

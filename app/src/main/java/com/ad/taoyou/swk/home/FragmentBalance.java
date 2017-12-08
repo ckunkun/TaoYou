@@ -28,6 +28,7 @@ import com.google.gson.Gson;
 import org.json.JSONException;
 
 import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -52,7 +53,7 @@ public class FragmentBalance extends BaseFragment {
 
     private TextView mTvTMoney, mTvTTotle;
 
-    private String tMoney, tName,tOrder;
+    private String tMoney, tName, tOrder;
     private int tCount;
 
     @Override
@@ -70,7 +71,6 @@ public class FragmentBalance extends BaseFragment {
         mTvTTotle = (TextView) mRootView.findViewById(R.id.tv_ttotle);
         mEtOther = (EditText) mRootView.findViewById(R.id.btn_other);
         mTvTMoney = (TextView) mRootView.findViewById(R.id.tv_tmoney);
-
 
         initView();
         initData();
@@ -94,7 +94,6 @@ public class FragmentBalance extends BaseFragment {
                 callBack();
             }
         }
-
     };
 
     @Override
@@ -102,77 +101,79 @@ public class FragmentBalance extends BaseFragment {
         int i = view.getId();
         if (i == R.id.btn_back) {
             backFragment(this, "");
-
         } else if (i == R.id.rl_alipay) {//选择支付宝支付
             mTvPayType.setText("支付宝");
             mRootView.findViewById(R.id.img_alipay_check).setVisibility(View.VISIBLE);
             mRootView.findViewById(R.id.img_card_check).setVisibility(View.GONE);
             mRootView.findViewById(R.id.img_wx_check).setVisibility(View.GONE);
-
         } else if (i == R.id.rl_wx) {//选择微信支付
             mTvPayType.setText("微信");
             mRootView.findViewById(R.id.img_alipay_check).setVisibility(View.GONE);
             mRootView.findViewById(R.id.img_card_check).setVisibility(View.GONE);
             mRootView.findViewById(R.id.img_wx_check).setVisibility(View.VISIBLE);
-
         } else if (i == R.id.rl_card) {//选择信用卡支付
             mTvPayType.setText("信用卡");
             mRootView.findViewById(R.id.img_alipay_check).setVisibility(View.GONE);
             mRootView.findViewById(R.id.img_card_check).setVisibility(View.VISIBLE);
             mRootView.findViewById(R.id.img_wx_check).setVisibility(View.GONE);
-
         } else if (i == R.id.btn_ten) {//10元
             mEtOther.setText("");
             money = 10;
             clear();
             mTvPayMoney.setText("10元");
-            mRootView.findViewById(R.id.btn_ten).setBackgroundResource(R.drawable.dra_pay_balance_check_bg);
-            ((TextView) mRootView.findViewById(R.id.btn_ten)).setTextColor(getResources().getColor(R.color.white));
-
+            mRootView.findViewById(R.id.btn_ten)
+                    .setBackgroundResource(R.drawable.dra_pay_balance_check_bg);
+            ((TextView) mRootView.findViewById(R.id.btn_ten)).setTextColor(
+                    getResources().getColor(R.color.white));
         } else if (i == R.id.btn_twenty) {//20元
             mEtOther.setText("");
             money = 20;
 
             clear();
             mTvPayMoney.setText("20元");
-            mRootView.findViewById(R.id.btn_twenty).setBackgroundResource(R.drawable.dra_pay_balance_check_bg);
-            ((TextView) mRootView.findViewById(R.id.btn_twenty)).setTextColor(getResources().getColor(R.color.white));
-
+            mRootView.findViewById(R.id.btn_twenty)
+                    .setBackgroundResource(R.drawable.dra_pay_balance_check_bg);
+            ((TextView) mRootView.findViewById(R.id.btn_twenty)).setTextColor(
+                    getResources().getColor(R.color.white));
         } else if (i == R.id.btn_fifty) {//50元
             mEtOther.setText("");
             money = 50;
             clear();
             mTvPayMoney.setText("50元");
-            mRootView.findViewById(R.id.btn_fifty).setBackgroundResource(R.drawable.dra_pay_balance_check_bg);
-            ((TextView) mRootView.findViewById(R.id.btn_fifty)).setTextColor(getResources().getColor(R.color.white));
-
+            mRootView.findViewById(R.id.btn_fifty)
+                    .setBackgroundResource(R.drawable.dra_pay_balance_check_bg);
+            ((TextView) mRootView.findViewById(R.id.btn_fifty)).setTextColor(
+                    getResources().getColor(R.color.white));
         } else if (i == R.id.btn_one_hundred) {//100元
             mEtOther.setText("");
 
             money = 100;
             clear();
             mTvPayMoney.setText("100元");
-            mRootView.findViewById(R.id.btn_one_hundred).setBackgroundResource(R.drawable.dra_pay_balance_check_bg);
-            ((TextView) mRootView.findViewById(R.id.btn_one_hundred)).setTextColor(getResources().getColor(R.color.white));
-
+            mRootView.findViewById(R.id.btn_one_hundred)
+                    .setBackgroundResource(R.drawable.dra_pay_balance_check_bg);
+            ((TextView) mRootView.findViewById(R.id.btn_one_hundred)).setTextColor(
+                    getResources().getColor(R.color.white));
         } else if (i == R.id.btn_two_hundred) {//200元
             mEtOther.setText("");
 
             money = 200;
             clear();
             mTvPayMoney.setText("200元");
-            mRootView.findViewById(R.id.btn_two_hundred).setBackgroundResource(R.drawable.dra_pay_balance_check_bg);
-            ((TextView) mRootView.findViewById(R.id.btn_two_hundred)).setTextColor(getResources().getColor(R.color.white));
-
+            mRootView.findViewById(R.id.btn_two_hundred)
+                    .setBackgroundResource(R.drawable.dra_pay_balance_check_bg);
+            ((TextView) mRootView.findViewById(R.id.btn_two_hundred)).setTextColor(
+                    getResources().getColor(R.color.white));
         } else if (i == R.id.btn_three_hundred) {//300元
             mEtOther.setText("");
 
             money = 300;
             clear();
             mTvPayMoney.setText("300元");
-            mRootView.findViewById(R.id.btn_three_hundred).setBackgroundResource(R.drawable.dra_pay_balance_check_bg);
-            ((TextView) mRootView.findViewById(R.id.btn_three_hundred)).setTextColor(getResources().getColor(R.color.white));
-
+            mRootView.findViewById(R.id.btn_three_hundred)
+                    .setBackgroundResource(R.drawable.dra_pay_balance_check_bg);
+            ((TextView) mRootView.findViewById(R.id.btn_three_hundred)).setTextColor(
+                    getResources().getColor(R.color.white));
         } else if (i == R.id.btn_instant_echarge) {//充值
             Log.e(TAG, "money:" + money);
             if (money == 0) {
@@ -180,12 +181,29 @@ public class FragmentBalance extends BaseFragment {
                 return;
             }
             if ("支付宝".equals(mTvPayType.getText().toString())) {
-                if (!TextUtils.isEmpty(tMoney))
-                    //游戏直接充值
-                    alipayGame();
-                else
+                if (!TextUtils.isEmpty(tMoney)) {
+                    if (tOrder.equals("1")) {
+                        alipayGameSecond(1);
+                    } else {
+                        //游戏直接充值
+                        alipayGame();
+                    }
+                } else {
                     //sdk内充值
                     alipayBalance();
+                }
+            } else if ("微信".equals(mTvPayType.getText().toString())) {
+                if (!TextUtils.isEmpty(tMoney)) {
+                    if (tOrder.equals("1")) {
+                        alipayGameSecond(6);
+                    } else {
+                        //游戏直接充值
+                        weChatPayGame();
+                    }
+                } else {
+                    //sdk内充值
+                    weChatPayCoin();
+                }
             }
         }
     }
@@ -211,8 +229,10 @@ public class FragmentBalance extends BaseFragment {
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
                 clear();
-                mRootView.findViewById(R.id.btn_other).setBackgroundResource(R.drawable.dra_pay_balance_check_bg);
-                ((TextView) mRootView.findViewById(R.id.btn_other)).setTextColor(getResources().getColor(R.color.white));
+                mRootView.findViewById(R.id.btn_other)
+                        .setBackgroundResource(R.drawable.dra_pay_balance_check_bg);
+                ((TextView) mRootView.findViewById(R.id.btn_other)).setTextColor(
+                        getResources().getColor(R.color.white));
             }
 
             @Override
@@ -221,7 +241,6 @@ public class FragmentBalance extends BaseFragment {
                 mTvPayMoney.setText(!TextUtils.isEmpty(editable.toString()) ? editable.toString() : "0");
             }
         });
-
     }
 
     /**
@@ -232,19 +251,29 @@ public class FragmentBalance extends BaseFragment {
         mRootView.findViewById(R.id.btn_ten).setBackgroundResource(R.drawable.dra_pay_balance_bg);
         mRootView.findViewById(R.id.btn_twenty).setBackgroundResource(R.drawable.dra_pay_balance_bg);
         mRootView.findViewById(R.id.btn_fifty).setBackgroundResource(R.drawable.dra_pay_balance_bg);
-        mRootView.findViewById(R.id.btn_one_hundred).setBackgroundResource(R.drawable.dra_pay_balance_bg);
-        mRootView.findViewById(R.id.btn_two_hundred).setBackgroundResource(R.drawable.dra_pay_balance_bg);
-        mRootView.findViewById(R.id.btn_three_hundred).setBackgroundResource(R.drawable.dra_pay_balance_bg);
+        mRootView.findViewById(R.id.btn_one_hundred)
+                .setBackgroundResource(R.drawable.dra_pay_balance_bg);
+        mRootView.findViewById(R.id.btn_two_hundred)
+                .setBackgroundResource(R.drawable.dra_pay_balance_bg);
+        mRootView.findViewById(R.id.btn_three_hundred)
+                .setBackgroundResource(R.drawable.dra_pay_balance_bg);
         mRootView.findViewById(R.id.btn_other).setBackgroundResource(R.drawable.dra_pay_balance_bg);
 
         //清除字体颜色
-        ((TextView) mRootView.findViewById(R.id.btn_ten)).setTextColor(getResources().getColor(R.color.TranslucentWhite));
-        ((TextView) mRootView.findViewById(R.id.btn_twenty)).setTextColor(getResources().getColor(R.color.TranslucentWhite));
-        ((TextView) mRootView.findViewById(R.id.btn_fifty)).setTextColor(getResources().getColor(R.color.TranslucentWhite));
-        ((TextView) mRootView.findViewById(R.id.btn_one_hundred)).setTextColor(getResources().getColor(R.color.TranslucentWhite));
-        ((TextView) mRootView.findViewById(R.id.btn_two_hundred)).setTextColor(getResources().getColor(R.color.TranslucentWhite));
-        ((TextView) mRootView.findViewById(R.id.btn_three_hundred)).setTextColor(getResources().getColor(R.color.TranslucentWhite));
-        ((TextView) mRootView.findViewById(R.id.btn_other)).setTextColor(getResources().getColor(R.color.TranslucentWhite));
+        ((TextView) mRootView.findViewById(R.id.btn_ten)).setTextColor(
+                getResources().getColor(R.color.TranslucentWhite));
+        ((TextView) mRootView.findViewById(R.id.btn_twenty)).setTextColor(
+                getResources().getColor(R.color.TranslucentWhite));
+        ((TextView) mRootView.findViewById(R.id.btn_fifty)).setTextColor(
+                getResources().getColor(R.color.TranslucentWhite));
+        ((TextView) mRootView.findViewById(R.id.btn_one_hundred)).setTextColor(
+                getResources().getColor(R.color.TranslucentWhite));
+        ((TextView) mRootView.findViewById(R.id.btn_two_hundred)).setTextColor(
+                getResources().getColor(R.color.TranslucentWhite));
+        ((TextView) mRootView.findViewById(R.id.btn_three_hundred)).setTextColor(
+                getResources().getColor(R.color.TranslucentWhite));
+        ((TextView) mRootView.findViewById(R.id.btn_other)).setTextColor(
+                getResources().getColor(R.color.TranslucentWhite));
     }
 
     @Override
@@ -254,41 +283,45 @@ public class FragmentBalance extends BaseFragment {
         //默认充值金额是10元
         mTvPayMoney.setText("10元");
 
-        mTvcoin.setText(!TextUtils.isEmpty(UserInfo.getInstance().getBalanceCoin())
-                ? "余额：" + UserInfo.getInstance().getBalanceCoin() + "淘币" :
-                "余额：0淘币");
-        mTvScore.setText(!TextUtils.isEmpty(UserInfo.getInstance().getBalanceScore())
-                ? UserInfo.getInstance().getBalanceScore() + "淘豆" :
-                "0淘豆");
+        mTvcoin.setText(
+                !TextUtils.isEmpty(UserInfo.getInstance().getBalanceCoin()) ? "余额：" + UserInfo.getInstance()
+                        .getBalanceCoin() + "淘币" : "余额：0淘币");
+        mTvScore.setText(
+                !TextUtils.isEmpty(UserInfo.getInstance().getBalanceScore()) ? UserInfo.getInstance()
+                        .getBalanceScore() + "淘豆" : "0淘豆");
 
-        String param = getArguments().getString("param");
-        if (!"p".equals(param)) {
-            String[] tmp = param.split("&");
-            tMoney = tmp[0];
-            tName = tmp[1];
-            tCount = Integer.valueOf(tmp[2]);
-            tOrder = tmp[3];
-            mRootView.findViewById(R.id.rl_balance).setVisibility(View.GONE);
-            mRootView.findViewById(R.id.money1).setVisibility(View.GONE);
-            mRootView.findViewById(R.id.money2).setVisibility(View.GONE);
-            mRootView.findViewById(R.id.t_ll).setVisibility(View.VISIBLE);
-            mTvTMoney.setText(tName);
-            money = Integer.valueOf(tMoney);
-            mTvPayMoney.setText(money + "元");
-//            // 支付宝×100
-//            money = money * 100;
-            mTvTTotle.setText(!TextUtils.isEmpty(UserInfo.getInstance().getBalanceCoin())
-                    ? UserInfo.getInstance().getBalanceCoin() + "淘币" : "0淘币");
+        if (getArguments() != null) {
+
+            String param = getArguments().getString("param");
+            if (!"p".equals(param)) {
+                String[] tmp = param.split("&");
+                tMoney = tmp[0];
+                tName = tmp[1];
+                tCount = Integer.valueOf(tmp[2]);
+                tOrder = tmp[3];
+                mRootView.findViewById(R.id.rl_balance).setVisibility(View.GONE);
+                mRootView.findViewById(R.id.money1).setVisibility(View.GONE);
+                mRootView.findViewById(R.id.money2).setVisibility(View.GONE);
+                mRootView.findViewById(R.id.t_ll).setVisibility(View.VISIBLE);
+                mTvTMoney.setText(tName);
+                money = Integer.valueOf(tMoney);
+                mTvPayMoney.setText(money + "元");
+                //            // 支付宝×100
+                //            money = money * 100;
+                mTvTTotle.setText(
+                        !TextUtils.isEmpty(UserInfo.getInstance().getBalanceCoin()) ? UserInfo.getInstance()
+                                .getBalanceCoin() + "淘币" : "0淘币");
+            }
         }
     }
 
     private void alipayGame() {
-//        money = money * 100;
+        money = money * 100;
         LoadingDialogUtil.showLoadingDialog(getActivity());
         long time = System.currentTimeMillis() / 1000;
         String url = HttpTaskValues.API_POST_GAME_PREORDER;
         RequestParams params = new RequestParams();
-        params.addFormDataPart("tpfCode", "ITOYO");
+        params.addFormDataPart("tpfCode", MyApplication.tpfCode);
         params.addFormDataPart("gc", MyApplication.gc);
         params.addFormDataPart("pscodeEnum", "USIOYO");
         params.addFormDataPart("ty_ctoken", UserInfo.getInstance().getToken());
@@ -300,21 +333,22 @@ public class FragmentBalance extends BaseFragment {
         params.addFormDataPart("count", tCount);
         params.addFormDataPart("gameOrderNo", tOrder);
         params.addFormDataPart("ty_payDiscount", 0);
-        HttpRequest.post(url,params,new HttpRequestCallBack(mContext){
+        money = money / 100;
+        HttpRequest.post(url, params, new HttpRequestCallBack(mContext) {
             @Override
             protected boolean onSuccess(JSONObject jsonObject, String msg) {
                 if (super.onSuccess(jsonObject, msg)) {
                     String rawJsonData = JsonFormatUtils.formatJson(jsonObject.toJSONString());
                     OrderInfo info = new Gson().fromJson(jsonObject.get("data").toString(), OrderInfo.class);
-//                    try {
-//                        info.setPreUrl(new java.net.URLDecoder().decode(info.getPreUrl(), "UTF-8"));
-//                    } catch (UnsupportedEncodingException e) {
-//                        e.printStackTrace();
-//                    }
+                    //                    try {
+                    //                        info.setPreUrl(new java.net.URLDecoder().decode(info.getPreUrl(), "UTF-8"));
+                    //                    } catch (UnsupportedEncodingException e) {
+                    //                        e.printStackTrace();
+                    //                    }
                     order = info.getPayOrderNo();
                     LoadingDialogUtil.dismissLoadingDialog();
                     Intent intent = new Intent(mContext, ActivityWeb.class);
-                    intent.putExtra(ActivityWeb.EXTRA_TYPE,ActivityWeb.EXTRA_TYPE_GAME );
+                    intent.putExtra(ActivityWeb.EXTRA_TYPE, ActivityWeb.EXTRA_TYPE_GAME);
                     intent.putExtra(ActivityWeb.EXTRA_URL, info.getPreUrl());
                     intent.putExtra(ActivityWeb.EXTRA_ORDER, info.getPayOrderNo());
                     getActivity().startActivity(intent);
@@ -324,8 +358,141 @@ public class FragmentBalance extends BaseFragment {
         });
     }
 
+    /**
+     * 支付宝和微信支付通过type区分
+     */
+    private void alipayGameSecond(int type) {
+        //money = money * 100;
+        LoadingDialogUtil.showLoadingDialog(getActivity());
+        String url = HttpTaskValues.API_POST_GAME_PREORDER_SECOND;
+        RequestParams params = new RequestParams();
+        params.addFormDataPart("payType", type);
+        params.addFormDataPart("mId", OrderBean.getInstance().getmId());
+        params.addFormDataPart("uId", OrderBean.getInstance().getuId());
+        params.addFormDataPart("payMoney", OrderBean.getInstance().getPayMoney());
+        params.addFormDataPart("outOrderId", OrderBean.getInstance().getOutOrderId());
+        params.addFormDataPart("gameId", OrderBean.getInstance().getGameId());
+        params.addFormDataPart("goodId", OrderBean.getInstance().getGoodId());
+        params.addFormDataPart("goodsName", OrderBean.getInstance().getGoodsName());
+        params.addFormDataPart("sign", OrderBean.getInstance().getSign());
+        params.addFormDataPart("param", OrderBean.getInstance().getParam());
+        params.addFormDataPart("time", OrderBean.getInstance().getTime());
+        Log.i(TAG, "params===alipayGameSecond:" + params);
+        HttpRequest.post(url, params, new HttpRequestCallBack(mContext) {
+            @Override
+            protected boolean onSuccess(JSONObject jsonObject, String msg) {
+                if (super.onSuccess(jsonObject, msg)) {
+                    String rawJsonData = JsonFormatUtils.formatJson(jsonObject.toJSONString());
+                    Log.i(TAG, "alipayGameSecond:" + rawJsonData);
+                    OrderInfo info = new Gson().fromJson(jsonObject.get("data").toString(), OrderInfo.class);
+                    order = info.getOrder();
+                    LoadingDialogUtil.dismissLoadingDialog();
+
+                    try {
+                        Intent intent = new Intent(mContext, ActivityWeb.class);
+                        intent.putExtra(ActivityWeb.EXTRA_TYPE, ActivityWeb.EXTRA_TYPE_GAME);
+
+                        intent.putExtra(ActivityWeb.EXTRA_URL, info.getPreurl()!=null?URLDecoder.decode(info.getPreurl(), "UTF-8"):URLDecoder.decode(info.getPayurl(),"UTF-8"));
+                        intent.putExtra(ActivityWeb.EXTRA_ORDER, info.getOrder());
+                        getActivity().startActivity(intent);
+                    } catch (UnsupportedEncodingException e) {
+                        e.printStackTrace();
+                    }
+                }
+                return super.onSuccess(jsonObject, msg);
+            }
+        });
+    }
+
+    /**
+     * 微信淘游平台淘币充值
+     */
+    private void weChatPayCoin() {
+        money = money * 100;
+        String url = HttpTaskValues.WECHAT_PAY_COIN;
+        RequestParams params = new RequestParams();
+        params.addFormDataPart("ty_ctoken", UserInfo.getInstance().getToken());
+        params.addFormDataPart("ty_cid", UserInfo.getInstance().getCid());
+        params.addFormDataPart("gopenid", UserInfo.getInstance().getGopenid());
+        params.addFormDataPart("payMoney", money);
+        money = money / 100;
+        HttpRequest.post(url, params, new HttpRequestCallBack(mContext) {
+            @Override
+            protected boolean onSuccess(JSONObject jsonObject, String msg) {
+                if (super.onSuccess(jsonObject, msg)) {
+                    String rawJsonData = JsonFormatUtils.formatJson(jsonObject.toJSONString());
+                    Log.i(TAG, "1.4.3 创建手机网站淘币预订单  微信:" + rawJsonData);
+                   JSONObject data = (JSONObject) jsonObject.get("data");
+                    OrderInfo info = new Gson().fromJson(data.get("data").toString(), OrderInfo.class);
+
+                    try {
+                        info.setMweb_url(URLDecoder.decode(info.getMweb_url(), "UTF-8"));
+                    } catch (UnsupportedEncodingException e) {
+                        e.printStackTrace();
+                    }
+                    order = info.getOrderno();
+                    LoadingDialogUtil.dismissLoadingDialog();
+                    Intent intent = new Intent(mContext, ActivityWeb.class);
+                    intent.putExtra(ActivityWeb.EXTRA_TYPE, ActivityWeb.EXTRA_TYPE_TB);
+                    intent.putExtra(ActivityWeb.EXTRA_URL, info.getMweb_url());
+                    intent.putExtra(ActivityWeb.EXTRA_ORDER, info.getOrderno());
+                    getActivity().startActivity(intent);
+                }
+                return super.onSuccess(jsonObject, msg);
+            }
+        });
+    }
+
+    /**
+     * 微信支付 新游戏
+     */
+    private void weChatPayGame() {
+        money = money * 100;
+        long time = System.currentTimeMillis() / 1000;
+        String url = HttpTaskValues.WECHAT_PAY_GAME;
+        RequestParams params = new RequestParams();
+        params.addFormDataPart("tpfCode", MyApplication.tpfCode);
+        params.addFormDataPart( "gc", MyApplication.gc);
+        params.addFormDataPart("payMoney", money);
+        params.addFormDataPart("gorderno", tOrder);
+        params.addFormDataPart("gopenid", UserInfo.getInstance().getGopenid());
+        params.addFormDataPart("gameArea", "1");
+        params.addFormDataPart("roleName", "无");
+        params.addFormDataPart("roleLevel", "1");
+        params.addFormDataPart("productName", tName);
+        params.addFormDataPart("signTime", time);
+        Log.i(TAG, "1.4.3 创建手机网站游戏预订单  微信:" + params);
+        money = money / 100;
+        HttpRequest.post(url, params, new HttpRequestCallBack(mContext) {
+            @Override
+            protected boolean onSuccess(JSONObject jsonObject, String msg) {
+                if (super.onSuccess(jsonObject, msg)) {
+                    String rawJsonData = JsonFormatUtils.formatJson(jsonObject.toJSONString());
+                                        Log.i(TAG, "1.4.3 创建手机网站淘币预订单" + rawJsonData);
+                    OrderInfo info = new Gson().fromJson(jsonObject.get("data").toString(), OrderInfo.class);
+                    try {
+                        info.setMweb_url(URLDecoder.decode(info.getMweb_url(), "UTF-8"));
+                    } catch (UnsupportedEncodingException e) {
+                        e.printStackTrace();
+                    }
+                    order = info.getOrderno();
+                    LoadingDialogUtil.dismissLoadingDialog();
+                    Intent intent = new Intent(mContext, ActivityWeb.class);
+                    intent.putExtra(ActivityWeb.EXTRA_TYPE, ActivityWeb.EXTRA_TYPE_TB);
+                    intent.putExtra(ActivityWeb.EXTRA_URL, info.getMweb_url());
+                    intent.putExtra(ActivityWeb.EXTRA_ORDER, info.getOrderno());
+                    getActivity().startActivity(intent);
+                }
+                return super.onSuccess(jsonObject, msg);
+            }
+        });
+    }
+
+    /**
+     * 支付宝淘币
+     */
     private void alipayBalance() {
-//        money = money * 100;
+        money = money * 100;
 
         LoadingDialogUtil.showLoadingDialog(getActivity());
         long time = System.currentTimeMillis() / 1000;
@@ -345,22 +512,23 @@ public class FragmentBalance extends BaseFragment {
         params.addFormDataPart("payMoney", money);
         params.addFormDataPart("time", time);
         params.addFormDataPart("sign", sign);
+        money = money / 100;
         HttpRequest.post(url, params, new HttpRequestCallBack(mContext) {
             @Override
             protected boolean onSuccess(JSONObject jsonObject, String msg) {
                 if (super.onSuccess(jsonObject, msg)) {
                     String rawJsonData = JsonFormatUtils.formatJson(jsonObject.toJSONString());
-//                    Log.i(TAG, "1.4.3 创建手机网站淘币预订单" + rawJsonData);
+                    //                    Log.i(TAG, "1.4.3 创建手机网站淘币预订单" + rawJsonData);
                     OrderInfo info = new Gson().fromJson(jsonObject.get("data").toString(), OrderInfo.class);
                     try {
-                        info.setPayUrl(new java.net.URLDecoder().decode(info.getPayUrl(), "UTF-8"));
+                        info.setPayUrl(URLDecoder.decode(info.getPayUrl(), "UTF-8"));
                     } catch (UnsupportedEncodingException e) {
                         e.printStackTrace();
                     }
                     order = info.getPayOrderNo();
                     LoadingDialogUtil.dismissLoadingDialog();
                     Intent intent = new Intent(mContext, ActivityWeb.class);
-                    intent.putExtra(ActivityWeb.EXTRA_TYPE,ActivityWeb.EXTRA_TYPE_TB );
+                    intent.putExtra(ActivityWeb.EXTRA_TYPE, ActivityWeb.EXTRA_TYPE_TB);
                     intent.putExtra(ActivityWeb.EXTRA_URL, info.getPayUrl());
                     intent.putExtra(ActivityWeb.EXTRA_ORDER, info.getPayOrderNo());
                     getActivity().startActivity(intent);
@@ -381,16 +549,16 @@ public class FragmentBalance extends BaseFragment {
             protected boolean onSuccess(JSONObject jsonObject, String msg) {
                 if (super.onSuccess(jsonObject, msg)) {
                     String rawJsonData = JsonFormatUtils.formatJson(jsonObject.toJSONString());
-//                    Log.i(TAG, "1.5.3 我的淘币余额接口" + rawJsonData);
+                    Log.i(TAG, "1.5.3 我的淘币余额接口" + rawJsonData);
                     try {
-                        String balanceCoin = new org.json.JSONObject(jsonObject.get("data").toString()).getString("balanceCoin");
+                        String balanceCoin =
+                                new org.json.JSONObject(jsonObject.get("data").toString()).getString("balanceCoin");
                         UserInfo.instance.setBalanceCoin(balanceCoin);
-                        mTvcoin.setText("余额：" + balanceCoin + "淘币");
-                        mTvTTotle.setText(balanceCoin + "淘币");
+                        mTvcoin.setText("余额：" + Integer.parseInt(balanceCoin) / 100 + "淘币");
+                        mTvTTotle.setText(Integer.parseInt(balanceCoin) / 100 + "淘币");
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
-
                 }
                 return super.onSuccess(jsonObject, msg);
             }
@@ -414,14 +582,15 @@ public class FragmentBalance extends BaseFragment {
         params.addFormDataPart("payOrderNo", order);
         params.addFormDataPart("signTime", time);
         params.addFormDataPart("sign", sign);
-        HttpRequest.post(HttpTaskValues.API_POST_ALIPAY_CALLBACK, params, new HttpRequestCallBack(mContext) {
-            @Override
-            protected boolean onSuccess(JSONObject jsonObject, String msg) {
-//                Log.d(TAG, JsonFormatUtils.formatJson(jsonObject.toJSONString()));
-                getCoin();
-                return super.onSuccess(jsonObject, msg);
-            }
-        });
+        HttpRequest.post(HttpTaskValues.API_POST_ALIPAY_CALLBACK, params,
+                new HttpRequestCallBack(mContext) {
+                    @Override
+                    protected boolean onSuccess(JSONObject jsonObject, String msg) {
+                        //                Log.d(TAG, JsonFormatUtils.formatJson(jsonObject.toJSONString()));
+                        getCoin();
+                        return super.onSuccess(jsonObject, msg);
+                    }
+                });
     }
 
     @Override

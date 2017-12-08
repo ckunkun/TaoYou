@@ -127,6 +127,7 @@
             android:src="@mipmap/ic_empty_mygift" />
 
         <TextView
+            android:id="@+id/gift_toast"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"

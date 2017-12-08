@@ -127,6 +127,7 @@ public class Helper {
         params.addFormDataPart("uin", sfOnlineUser.getChannelUserId());
         params.addFormDataPart("sess", sfOnlineUser.getToken());
         params.addFormDataPart("gc", MyApplication.gc);
+        params.addFormDataPart("tpfCode", MyApplication.tpfCode);
         params.addFormDataPart("device", Utils.getModel());
         params.addFormDataPart("system", Utils.getSystem());
         params.addFormDataPart("IMEI", Utils.getIdenty(mContext));

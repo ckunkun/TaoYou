@@ -226,6 +226,7 @@ public class HomeActivity extends BaseActivity {
             img_menu3.setImageResource(R.mipmap.ic_hui_gift);
             img_menu4.setImageResource(R.mipmap.ic_hui_activity);
         }
+
         mCurrentItem = TAB_HOME;
         FragManager.curItem = TAB_HOME;
     }
